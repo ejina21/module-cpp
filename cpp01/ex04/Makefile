@@ -2,7 +2,7 @@ SRCS	=	$(wildcard *.cpp)
 
 OBJS	=	$(SRCS:.cpp=.o)
 
-NAME	=	zombie
+NAME	=	replace
 
 CC		=	clang++
 
@@ -15,11 +15,11 @@ all:		$(NAME)
 $(NAME):	$(OBJS)
 			$(CC) $(CFLAGS)  -o $@ $^
 
-%.o:		%.cpp Zombie.hpp
+%.o:		%.cpp
 			$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-			$(RM) $(OBJS)
+			$(RM) $(OBJS) *.replace
 
 fclean:		clean
 			$(RM) $(NAME)
