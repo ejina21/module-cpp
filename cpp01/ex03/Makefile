@@ -2,7 +2,7 @@ SRCS	=	$(wildcard *.cpp)
 
 OBJS	=	$(SRCS:.cpp=.o)
 
-NAME	=	test
+NAME	=	weapon
 
 CC		=	clang++
 
@@ -15,7 +15,7 @@ all:		$(NAME)
 $(NAME):	$(OBJS)
 			$(CC) $(CFLAGS)  -o $@ $^
 
-%.o:		%.cpp Account.hpp
+%.o:		%.cpp Weapon.hpp HumanA.hpp HumanB.hpp
 			$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

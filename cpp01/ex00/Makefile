@@ -2,7 +2,7 @@ SRCS	=	$(wildcard *.cpp)
 
 OBJS	=	$(SRCS:.cpp=.o)
 
-NAME	=	phonebook
+NAME	=	zombie
 
 CC		=	clang++
 
@@ -15,7 +15,7 @@ all:		$(NAME)
 $(NAME):	$(OBJS)
 			$(CC) $(CFLAGS)  -o $@ $^
 
-%.o:		%.cpp phonebook.h
+%.o:		%.cpp Zombie.hpp
 			$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
