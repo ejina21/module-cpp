@@ -2,11 +2,11 @@ SRCS	=	$(wildcard *.cpp)
 
 OBJS	=	$(SRCS:.cpp=.o)
 
-NAME	=	fixed
+NAME	=	clap_trap
 
 CC		=	clang++
 
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -Wshadow -Wno-shadow
 
 RM		=	rm -f
 
@@ -15,7 +15,7 @@ all:		$(NAME)
 $(NAME):	$(OBJS)
 			$(CC) $(CFLAGS)  -o $@ $^
 
-%.o:		%.cpp Fixed.hpp Point.hpp
+%.o:		%.cpp ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
 			$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

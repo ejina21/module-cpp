@@ -2,7 +2,7 @@ SRCS	=	$(wildcard *.cpp)
 
 OBJS	=	$(SRCS:.cpp=.o)
 
-NAME	=	fixed
+NAME	=	clap_trap
 
 CC		=	clang++
 
@@ -15,7 +15,7 @@ all:		$(NAME)
 $(NAME):	$(OBJS)
 			$(CC) $(CFLAGS)  -o $@ $^
 
-%.o:		%.cpp Fixed.hpp Point.hpp
+%.o:		%.cpp ClapTrap.hpp
 			$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
