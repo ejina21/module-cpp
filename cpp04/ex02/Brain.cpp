@@ -2,7 +2,6 @@
 
 Brain::Brain( void ) : _current_idea(0) {
 	std::cout << "An instance of Brain class was born!" << std::endl;
-	// this->_ideas = new std::string[100];
 }
 
 Brain::~Brain( void ) {

@@ -1,32 +1,27 @@
-NAME		=	materia
+SRCS	=	$(wildcard *.cpp)
 
-C			=	g++
+OBJS	=	$(SRCS:.cpp=.o)
 
-C_FLAGS		= 	-Wall -Wextra -Werror -std=c++98
+NAME	=	materia
 
-HEADER		=	AMateria.hpp\
-				IMateriaSource.hpp\
-				MateriaSource.hpp\
-				ICharacter.hpp\
-				Character.hpp\
-				Ice.hpp\
-				Cure.hpp
+CC		=	clang++
 
-SRCS		=	main.cpp\
-				AMateria.cpp\
-				Character.cpp\
-				MateriaSource.cpp\
-				Ice.cpp\
-				Cure.cpp
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
-RM			= rm -f
+RM		=	rm -f
 
-$(NAME):	$(HEADER) $(SRCS)
-			$(C) $(C_FLAGS) $(SRCS) -o $@
+all:		$(NAME)
 
-all: 		$(NAME)
+$(NAME):	$(OBJS)
+			$(CC) $(CFLAGS)  -o $@ $^
 
-fclean: 	
+%.o:		%.cpp AMateria.hpp Character.hpp Cure.hpp Ice.hpp ICharacter.hpp IMateriaSource.hpp MateriaSource.hpp
+			$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+			$(RM) $(OBJS)
+
+fclean:		clean
 			$(RM) $(NAME)
 
 re:			fclean all

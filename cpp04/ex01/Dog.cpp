@@ -6,12 +6,6 @@ Dog::Dog( void ) : Animal() {
 	this->_DogBrain = new Brain();
 }
 
-Dog::Dog( std::string type ): Animal(type) {
-	std::cout << "A " << _type << " of Dog class was born!" << std::endl;
-	this->_type = "Dog";
-	this->_DogBrain = new Brain();
-}
-
 Dog::~Dog( void ) {
 	if (!(this->_type.empty()))
 		std::cout << "An instance of Dog class is dead now!" << std::endl;

@@ -4,20 +4,18 @@
 # include "Animal.hpp"
 # include "Brain.hpp"
 
-class Cat : public Animal, public Brain {
+class Cat : public Animal, public Brain
+{
+private:
+	Brain* _CatBrain;
 
-	private:
-		Brain* _CatBrain;
-	
-	public:
-		Cat( void );
-		Cat( std::string name );
-		virtual ~Cat( void );
-		Cat( const Cat& toCopy );
-		Cat& operator=( const Cat& value );
+public:
+	Cat( void );
+	virtual ~Cat( void );
+	Cat( const Cat& toCopy );
+	Cat& operator=( const Cat& value );
 
-		virtual void makeSound() const;
-
+	virtual void makeSound() const;
 };
 
 #endif

@@ -4,14 +4,11 @@ WrongAnimal::WrongAnimal( void ) {
 	std::cout << "An instance of WrongAnimal class was born!" << std::endl;
 }
 
-WrongAnimal::WrongAnimal( std::string type ): _type(type) {
-	std::cout << "A " << _type << " of WrongAnimal class was born!" << std::endl;
-}
-
 WrongAnimal::~WrongAnimal( void ) {
 	if (!(this->_type.empty()))
 		std::cout << "A " << _type << " of WrongAnimal class is dead now!" << std::endl;
-	std::cout << "An instance of WrongAnimal class is dead now!" << std::endl;
+	else
+		std::cout << "An instance of WrongAnimal class is dead now!" << std::endl;
 }
 
 WrongAnimal::WrongAnimal( const WrongAnimal& toCopy ) {

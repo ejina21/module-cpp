@@ -5,15 +5,11 @@ WrongCat::WrongCat( void ) : WrongAnimal() {
 	this->_type = "WrongCat";
 }
 
-WrongCat::WrongCat( std::string type ): WrongAnimal(type) {
-	std::cout << "A " << _type << " of WrongCat class was born!" << std::endl;
-	this->_type = "WrongCat";
-}
-
 WrongCat::~WrongCat( void ) {
 	if (!(this->_type.empty()))
 		std::cout << "An instance of WrongCat class is dead now!" << std::endl;
-	std::cout << "A " << _type << " of WrongCat class is dead now!" << std::endl;
+	else
+		std::cout << "A " << _type << " of WrongCat class is dead now!" << std::endl;
 }
 
 WrongCat::WrongCat( const WrongCat& toCopy ) {

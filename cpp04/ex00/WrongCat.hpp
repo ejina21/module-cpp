@@ -3,16 +3,15 @@
 
 # include "WrongAnimal.hpp"
 
-class WrongCat : public WrongAnimal {
+class WrongCat : public WrongAnimal
+{
+public:
+	WrongCat( void );
+	~WrongCat( void );
+	WrongCat( const WrongCat& toCopy );
+	WrongCat& operator=( const WrongCat& value );
 
-	public:
-		WrongCat( void );
-		WrongCat( std::string name );
-		~WrongCat( void );
-		WrongCat( const WrongCat& toCopy );
-		WrongCat& operator=( const WrongCat& value );
-
-		void makeSound() const;
+	void makeSound() const;
 
 };
 

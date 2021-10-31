@@ -5,15 +5,11 @@ Cat::Cat( void ) : Animal() {
 	this->_type = "Cat";
 }
 
-Cat::Cat( std::string type ): Animal(type) {
-	std::cout << "A " << _type << " of Cat class was born!" << std::endl;
-	this->_type = "Cat";
-}
-
 Cat::~Cat( void ) {
 	if (!(this->_type.empty()))
 		std::cout << "An instance of Cat class is dead now!" << std::endl;
-	std::cout << "A " << _type << " of Cat class is dead now!" << std::endl;
+	else
+		std::cout << "A " << _type << " of Cat class is dead now!" << std::endl;
 }
 
 Cat::Cat( const Cat& toCopy ) {

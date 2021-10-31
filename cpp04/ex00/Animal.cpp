@@ -4,14 +4,11 @@ Animal::Animal( void ) {
 	std::cout << "An instance of Animal class was born!" << std::endl;
 }
 
-Animal::Animal( std::string type ): _type(type) {
-	std::cout << "A " << _type << " of Animal class was born!" << std::endl;
-}
-
 Animal::~Animal( void ) {
 	if (!(this->_type.empty()))
 		std::cout << "A " << _type << " of Animal class is dead now!" << std::endl;
-	std::cout << "An instance of Animal class is dead now!" << std::endl;
+	else
+		std::cout << "An instance of Animal class is dead now!" << std::endl;
 }
 
 Animal::Animal( const Animal& toCopy ) {

@@ -3,17 +3,15 @@
 
 # include "Animal.hpp"
 
-class Cat : public Animal {
+class Cat : public Animal
+{
+public:
+	Cat( void );
+	~Cat( void );
+	Cat( const Cat& toCopy );
+	Cat& operator=( const Cat& value );
 
-	public:
-		Cat( void );
-		Cat( std::string name );
-		~Cat( void );
-		Cat( const Cat& toCopy );
-		Cat& operator=( const Cat& value );
-
-		virtual void makeSound() const;
-
+	virtual void makeSound() const;
 };
 
 #endif

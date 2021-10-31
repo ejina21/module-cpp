@@ -6,7 +6,6 @@
 int	main(void) {
 	const Animal* zoo[4];
 
-	std::cout << std::endl;
 	for (int i = 0; i < 2; i++)
 		zoo[i] = new Cat();
 
@@ -20,8 +19,8 @@ int	main(void) {
 	std::cout << std::endl;
 	for (int i = 0; i < 50; i++) {
 		cat->setIdea(("idea: " + std::to_string(i)));
-		std::cout << std::setw(2) << cat->getIdea(i);
-		std::cout << " ";
+		std::cout << " " << cat->getIdea(i);
+		std::cout << ", ";
 		if (i % 10 == 0)
 			std::cout << std::endl;
 	}
