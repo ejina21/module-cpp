@@ -1,27 +1,21 @@
 #include "A.hpp"
 
-A::A(void)
-{
+A::A(){}
 
-}
-
-A::A(A const & other)
+A::A(A const& other)
 {
 	*this = other;
 }
 
-A::~A(void)
-{
+A::~A(){}
 
-}
-
-A & A::operator= (A const &)
+A& A::operator=(A const& copy)
 {
+	(void)copy;
 	return *this;
 }
 
-//
-void	A::tellType(void)
+void A::tellType()
 {
-	std::cout << F_R_PRPL << "A" << RESET << std::endl;
+	std::cout << "A" << std::endl;
 }

@@ -1,44 +1,21 @@
-#include "Convert.hpp"
-#include "MyException.hpp"
+#include "Converter.hpp"
 
-int	main( int argc, char **argv )
+int	main(int argc, char **argv)
 {
 	(void)argv;
 	try
 	{
 		if (argc != 2)
-			throw ( MyException( "Wrong number of arguments!" ) );
+			throw ErrorException();
 		std::string val = argv[1];
-		
-//		 Convert c = Convert( val );
-//		 c.cnvrs();
-//		 std::cout << std::endl;
-//
-//		 Convert cc;
-//		 cc = c;
-//		 cc.cnvrs();
-
-		// Convert *c = new Convert( val );
-		// c->cnvrs();
-		// std::cout << std::endl;
-		
-		// Convert *cc = c;
-		// delete c;
-		// cc->cnvrs();
 
 		Convert *c = new Convert( val );
-		c->cnvrs();
-		std::cout << std::endl;
-		
-		Convert *cc = new Convert();
-		cc = c;
+		c->converting();
+
 		delete c;
-		cc->cnvrs();
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << F_R_RED << e.what() << RESET << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
-	
-	return ( 0 );
 }

@@ -10,25 +10,23 @@ Data* deserialize(uintptr_t raw)
 	return(reinterpret_cast< Data* >(raw));
 }
 
-int		main()
+int main()
 {
-	Data origin;
-	origin.i = 8888;
-	origin.f = 8.888f;
-	origin.d = 888.8;
-	origin.c = '8';
-	origin.s = "Eight thousand eight hundred eighty eight";
+	Data data;
+	data.i = 555;
+	data.f = 5.55f;
+	data.d = 55.5;
+	data.c = '5';
+	data.s = "Five thousand five hundred fifty five";
 	
-	uintptr_t uptr_one = serialize(&origin);
+	uintptr_t uptr_one = serialize(&data);
 	uintptr_t uptr_two = uptr_one;
 
-	Data *rcvr = deserialize(uptr_two);
+	Data *recover = deserialize(uptr_two);
 
-	std::cout << F_R_GRN << "int: " << F_R_PRPL << rcvr->i << RESET << std::endl;
-	std::cout << F_R_GRN << "float: " << F_R_PRPL << rcvr->f << RESET << std::endl;
-	std::cout << F_R_GRN << "double: " << F_R_PRPL << rcvr->d << RESET << std::endl;
-	std::cout << F_R_GRN << "char: " << F_R_PRPL << rcvr->c << RESET << std::endl;
-	std::cout << F_R_GRN << "std::string: " << F_R_PRPL << rcvr->s << RESET << std::endl;
-
-	return (0);
+	std::cout << "int: " << recover->i << std::endl;
+	std::cout << "float: " << recover->f << std::endl;
+	std::cout << "double: " << recover->d << std::endl;
+	std::cout << "char: " << recover->c << std::endl;
+	std::cout << "string: " << recover->s << std::endl;
 }

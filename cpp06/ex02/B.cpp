@@ -1,27 +1,21 @@
 #include "B.hpp"
 
-B::B(void)
-{
+B::B(){}
 
+B::B(B const& copy)
+{
+	*this = copy;
 }
 
-B::B(B const & other)
-{
-	*this = other;
-}
+B::~B(){}
 
-B::~B(void)
+B& B::operator=(B const& copy)
 {
-
-}
-
-B & B::operator= (B const &)
-{
+	(void)copy;
 	return *this;
 }
 
-//
-void	B::tellType(void)
+void B::tellType()
 {
-	std::cout << F_R_PRPL << "B" << RESET << std::endl;
+	std::cout << "B" << std::endl;
 }

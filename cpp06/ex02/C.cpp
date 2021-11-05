@@ -1,27 +1,21 @@
 #include "C.hpp"
 
-C::C(void)
-{
+C::C(){}
 
+C::C(C const& copy)
+{
+	*this = copy;
 }
 
-C::C(C const & other)
-{
-	*this = other;
-}
+C::~C(){}
 
-C::~C(void)
+C& C::operator=(C const& copy)
 {
-
-}
-
-C & C::operator= (C const &)
-{
+	(void)copy;
 	return *this;
 }
 
-//
-void	C::tellType(void)
+void C::tellType()
 {
-	std::cout << F_R_PRPL << "C" << RESET << std::endl;
+	std::cout << "C" << std::endl;
 }

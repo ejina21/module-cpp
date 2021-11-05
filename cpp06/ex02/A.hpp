@@ -1,18 +1,15 @@
 #ifndef A_HPP
-# define A_HPP
+#define A_HPP
+#include "Base.hpp"
 
-# include "Base.hpp"
-
-class A : public Base
+class A: public Base
 {
-	public:
-		A(void);
-		A(A const & other);
-		virtual ~A(void);
-		A & operator= (A const & other);
-
-		//
-		void	tellType(void);
+public:
+	A();
+	A(A const &copy);
+	virtual ~A();
+	A& operator=(A const &copy);
+	void tellType(void);
 };
 
 #endif

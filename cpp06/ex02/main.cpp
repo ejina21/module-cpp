@@ -1,6 +1,6 @@
 #include "Utils.hpp"
 
-int		main()
+int main()
 {
 	Base *base = generate();
 	identify(base);

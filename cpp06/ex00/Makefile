@@ -1,47 +1,29 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: rburton <rburton@student.42.fr>            +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/09/28 11:32:38 by rburton           #+#    #+#              #
-#    Updated: 2021/06/30 04:11:17 by rburton          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+SRCS	=	$(wildcard *.cpp)
 
-NAME		=	convert
+OBJS	=	$(SRCS:.cpp=.o)
 
-HEADER		=	Convert.hpp \
-				MyException.hpp \
+NAME	=	convert
 
-SRC 		= 	main.cpp \
-				MyException.cpp \
-				Convert.cpp \
-				utils.cpp \
+CC		=	clang++
 
-OBJS		= ${SRC:.cpp=.o}
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
-CXX			= clang++
+RM		=	rm -f
 
-CPPFLAGS		= -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow -I.
+all:		$(NAME)
 
-RM			= rm -f
+$(NAME):	$(OBJS)
+			$(CC) $(CFLAGS)  -o $@ $^
 
-.PHONY: all clean re
-
-all:		${NAME}
-
-
-${OBJS}: 		${HEADER}
-${NAME}:		${OBJS}
-				${CXX} ${CPPFLAGS} -o ${NAME} ${OBJS} 
+%.o:		%.cpp Converter.hpp
+			$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-		${RM} ${OBJS}
+			$(RM) $(OBJS) *.txt
 
-fclean:	clean
-		${RM} ${NAME}
-		${RM} ${LIB}
+fclean:		clean
+			$(RM) $(NAME)
 
-re:		fclean all
+re:			fclean all
+
+.PHONY:		all clean fclean re
