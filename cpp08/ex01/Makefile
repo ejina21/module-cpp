@@ -1,11 +1,29 @@
-NAME	= containers
-SRCS	= ./span.hpp ./span.cpp ./main.cpp
-CFLAGS	= -Wall -Werror -Wextra -std=c++98
-CC		= clang++
+SRCS	=	$(wildcard *.cpp)
 
-all: $(SRCS) $(NAME)
-$(NAME): $(SRCS)
-			$(CC) $(CFLAGS) -I$(SRCS) -o $(NAME)
+OBJS	=	$(SRCS:.cpp=.o)
+
+NAME	=	span
+
+CC		=	clang++
+
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98
+
+RM		=	rm -f
+
+all:		$(NAME)
+
+$(NAME):	$(OBJS)
+			$(CC) $(CFLAGS)  -o $@ $^
+
+%.o:		%.cpp span.hpp
+			$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
-			rm -f $(NAME)
-re: clean all
+			$(RM) $(OBJS)
+
+fclean:		clean
+			$(RM) $(NAME)
+
+re:			fclean all
+
+.PHONY:		all clean fclean re

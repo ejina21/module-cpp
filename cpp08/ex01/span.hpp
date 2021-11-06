@@ -1,13 +1,13 @@
 #ifndef SPAN_HPP
 #define SPAN_HPP
-
 #include <vector>
+#include <iostream>
 
 class Span {
-private:
-    unsigned int n;
-    std::vector<int> num_vector;
-    int getSpan(int num1, int num2);
+    unsigned int _n;
+    std::vector<int> _my_vector;
+    int _getSpan(int num1, int num2);
+
 public:
     Span();
     Span(unsigned int n);
@@ -16,7 +16,7 @@ public:
     int shortestSpan();
     int longestSpan();
     ~Span();
-    void addNumber (int number);
+    void addNumber(int number);
     void addRangeNumber(int left, int right);
 };
 

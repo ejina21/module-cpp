@@ -2,7 +2,7 @@ SRCS	=	$(wildcard *.cpp)
 
 OBJS	=	$(SRCS:.cpp=.o)
 
-NAME	=	easyfind
+NAME	=	iter
 
 CC		=	clang++
 
@@ -15,7 +15,7 @@ all:		$(NAME)
 $(NAME):	$(OBJS)
 			$(CC) $(CFLAGS)  -o $@ $^
 
-%.o:		%.cpp easyfind.hpp
+%.o:		%.cpp iter.hpp
 			$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

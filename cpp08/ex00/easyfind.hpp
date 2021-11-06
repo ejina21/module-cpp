@@ -1,11 +1,11 @@
 #ifndef EASYFIND_HPP
 #define EASYFIND_HPP
-
 #include <iostream>
 
-class ValueNotFoundException : public std::exception {
+class ValueNotFoundException: public std::exception {
 public:
-    virtual const char *what() const throw() {
+    virtual const char *what() const throw()
+    {
         return "Value not found";
     }
 };
@@ -17,5 +17,4 @@ typename T::iterator easyfind(T &container, int elem) {
         throw ValueNotFoundException();
     return it;
 }
-
 #endif
